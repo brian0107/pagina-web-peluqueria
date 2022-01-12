@@ -1,0 +1,58 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+//Estilos a el archivo base (layout) que tendran todas las rutas.
+
+.contenedor-app { //Div contenedor
+  @include m.tablet {  //En tablet
+    @include m.grid( 2, 0); //Creamos 2 colunas con 5 rem de espaciado (en una columna la Imagen y en otra la App)
+    min-height: 100vh; //El contenedor tendra una altura minima de toda la pantalla.
+  }
+  .imagen { //Div de la imagen
+    height: 20rem; //por default la imagen tendra solo 20rem de altura
+    background-image: url("../img/1.jpg");
+    background-size: cover; //Cubrira todo el div
+    background-position: center center; //centrado en eje x-y
+    @include m.tablet {
+      height: auto; //En tablet o + la altura sera auto, para que la imagen tome todo el alto disponible del contenedor.
+    }
+  }
+
+  .app {//Div de la aplicación
+    width: 95%; //Para que no ocupe todo el ancho disponible
+    margin: 0 auto; //Centramos el div
+    padding: 3rem 0; //Añadimos un poco de separación arriba y abajo
+    @include m.tablet {
+      overflow: auto; //Solo si hay mucho contenido en la app, agrega un scroll
+    }
+  }
+}
+
+.barra { //DIV con nombre usuario y enlace para cerrar sesión
+
+  margin: v.$separacion 0; //Añadimos separacion arriba y abajo
+
+@include m.tablet {
+  display: flex;
+  justify-content: space-between; //Separamos elementos horizontalmente
+  align-items: center; //Centramos verticalmente los elementos
+
+}
+
+  .boton {
+    @include m.boton (v.$negro, v.$blanco);
+    margin: 0; //Quitamos la separacion arriba y abajo del enlace
+  }
+}
+
+.barra-servicios {
+  margin-bottom: v.$separacion;
+
+  @include m.tablet {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .boton {
+    margin: 0 0 1rem 0;
+  }
+}

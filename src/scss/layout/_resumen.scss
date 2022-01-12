@@ -1,0 +1,24 @@
+@use 'base/variables' as v;
+
+.contenido-resumen { //DIV de la seccion resumen
+    
+    p {
+        margin-bottom: 1rem;
+    }
+
+    span{
+        color: v.$azul;
+        font-weight: v.$bold;
+        font-size: 2.4rem;
+
+    }
+}
+
+.contenedor-servicio { //DIV en el resumen que contiene nombre y precio de los servicios seleccionados
+    padding: 3rem 0;
+    border-bottom: 1px solid v.$gris;
+     
+    &:last-of-type { //El ultimo div contenedor-servicio tendra separacion para separarse de los datos de la cita
+        margin-bottom: v.$separacion;
+    }
+}

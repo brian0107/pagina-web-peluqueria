@@ -1,0 +1,48 @@
+@use 'variables' as v;
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: v.$telefono) {
+        @content;
+    }
+}
+@mixin tablet {
+    @media (min-width: v.$tablet) {
+        @content;
+    }
+}
+@mixin desktop {
+    @media (min-width: v.$desktop) {
+        @content;
+    }
+}
+
+
+@mixin boton($bgColor, $colorTexto) {
+    display: block;
+    text-align: center;
+    padding: 1rem 4rem;
+    font-size: 2rem;
+    font-weight: 700;
+    background-color: $bgColor;
+    color: $colorTexto;
+    border: none;
+    transition-property: background-color;
+    transition-duration: .3s;
+    width: 100%; //En un dispositivo menor a tablet el boton tomara todo el ancho disponible
+    margin: 5rem 0;
+
+    @include tablet {
+        width: auto; //En un dispositivo tablet o +, el ancho de los button sera solo el que necesita el texto
+    }
+    &:hover {
+        background-color: darken( $bgColor, 10% );
+        cursor: pointer;
+    }
+}
+
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}

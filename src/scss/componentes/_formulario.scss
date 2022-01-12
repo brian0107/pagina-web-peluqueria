@@ -1,0 +1,30 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.formulario {
+    width: 100%;
+}
+
+.campo { //Divs Campos 
+    display: flex;
+    margin-bottom: 2rem; //Separamos un poco los campos
+    align-items: center; //Centramos el contenido verticalmente
+    
+    label {
+        flex: 0 0 10rem; //Los label no crecen ni se contraen y tienen un ancho inicial de 100px
+    }
+
+    input {
+        flex: 1; //Un valor de 1 hace que los input tomen el resto del ancho disponible del formulario
+        border: none; //Eliminamos el borde de los input
+        padding: calc(v.$separacion/4);
+        border-radius: 1rem; //Redondeamos las esquinas de el input
+
+        &:disabled {
+            background-color: lighten(v.$negro, 30%);
+            color: v.$blanco;
+            cursor: not-allowed;
+        }
+
+    }
+}

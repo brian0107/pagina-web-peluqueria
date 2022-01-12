@@ -1,0 +1,13 @@
+
+.seccion {
+    padding: 5rem 0; //Separamos del Nav.
+    display: none; //Ocultamos todas las secciones // Los elementos siguen en el Dom pero no estan visibles y su lugar queda libre
+
+    .text-center{
+        text-align: center;
+    }
+}
+
+.mostrar { //Mostraremos las secciones que el usuario selecciona
+    display: block;
+}

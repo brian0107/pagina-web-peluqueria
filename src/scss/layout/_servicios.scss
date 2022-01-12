@@ -1,0 +1,47 @@
+@use 'base/variables' as v;
+@use 'base/mixins' as m;
+
+.listado-servicios { //DIV QUE CONTIENE TODOS LOS DIV DE SERVICIOS
+    display: grid;
+    gap: 2rem;
+    @include m.tablet {         
+        @include m.grid(2,2rem);
+            
+        
+    }
+
+    .servicio { //CADA UNO DE LOS DIVS CON SERVICIOS
+        background-color: v.$blanco;
+        padding: 3rem;
+        text-align: center;
+        border-radius: 1rem;
+        transition-property: transform; //Busca la propiedad de transform
+        transition-duration: 300ms; //Realiza la animacion en este tiempo
+
+        &.seleccionado { // Cuando seleccionemos un servicio el fondo del div cambiara a azul
+            background-color: v.$azul;
+
+            p {
+                color: v.$blanco; //Tambien el texto de los parrafos cambiara a color blanco
+            }
+
+        }
+
+        &:hover{
+            transform: scale(1.1); //Animación: Transformamos el div a una escala un poco mayor
+        }
+
+        .nombre-servicio{ //PARRAFO NOMBRE SERVICIO
+            color: v.$negro;
+            margin: 0 0 calc(v.$separacion / 4) 0;
+        }
+
+        .precio-servicio { //PARRAFO PRECIO SERVICIO
+            color: v.$azul;
+            font-weight: v.$bold;
+            font-size: 3rem;
+            margin: 0;
+        }
+
+    }
+}

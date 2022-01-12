@@ -1,0 +1,38 @@
+@use 'variables' as v;
+@use 'base/mixins' as m;
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    height: 100%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    min-height: 100%; //La altura minima del body es del 100% de la pantalla,  pero si hay mucho contenido la altura puede crecer
+    @include m.tablet { //En tablet
+        height: 100%; // Altura fija, siempre sera del 100% de la pantalla, no crece ni decrece (Evitamos que la imagen se deforme cuando hay mucho contenido, solo agregamos un scroll a la app (VIDEO 543)
+    }
+    display: flex;
+    flex-direction: column;
+    background-color: v.$negro;
+    color: v.$blanco;
+    font-family: v.$fuente_principal;
+    font-size: 1.6rem;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
